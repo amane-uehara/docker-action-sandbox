@@ -1,13 +1,12 @@
 # pushでビルドくん
 
-gitで`v1.0.0`のようなタグをつけて`push`すると、
+gitで`v1.0`のようなタグをつけて`push`すると、
 GitHub ActionのCI/CDが発動し、ビルド生成物がアップロードされるやつ。
 
-### 使いかた
+pushでビルドしたいリポジトリに、ファイルを1つ追加すれば動く。
+めちゃくちゃ簡単。
 
-まず簡単な使い方を説明し、後でビルドコマンドの設定方法を述べる。
-
-##### 準備
+### 準備
 
 例として
 
@@ -28,9 +27,25 @@ GitHub ActionのCI/CDが発動し、ビルド生成物がアップロードさ�
 
 にコピーすればOK。
 
-##### 使用法
+### ビルドコマンドの設定方法
 
-以下のようにgitのタグをつけてGitHubに`push`すれば、ビルドが走る。
+`main.yml`のシェルコマンドを適当に書き換えて使う。
+
+<https://github.com/amane-uehara/docker-action-sandbox/blob/master/.github/workflows/main.yml#L14,L20>
+
+```sh
+echo "Hello, world!" > a.txt
+pwd  >> a.txt
+ls   >> a.txt
+date >> a.txt
+gzip a.txt
+```
+
+ここでは例として`a.txt.gz`を作っている。
+
+### 使用法
+
+`v1.0`のようなタグをつけてGitHubに`push`すれば、ビルドが走る。
 
 ```sh
 $ git clone git@github.com:yourname/repo.git
@@ -49,20 +64,6 @@ $ git push --set-upstream origin v1.0.0
 <https://github.com/yourname/repo/releases>
 
 に設置される。
-
-### ビルドコマンドの設定方法
-
-以下のシェルコマンドを適当に書き換えて使う。
-
-<https://github.com/amane-uehara/docker-action-sandbox/blob/master/.github/workflows/main.yml#L14,L20>
-
-```sh
-echo "Hello, world!" > a.txt
-pwd  >> a.txt
-ls   >> a.txt
-date >> a.txt
-gzip a.txt
-```
 
 ### LICENSE
 
