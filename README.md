@@ -63,3 +63,7 @@ ls   >> a.txt
 date >> a.txt
 gzip a.txt
 ```
+
+### LICENSE
+
+MIT
