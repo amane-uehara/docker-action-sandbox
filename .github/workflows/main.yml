@@ -13,7 +13,8 @@ jobs:
       # Create a.txt.gz
       - name: Create a.txt.gz
         run: |
-          echo "Hello, world!" > a.txt
+          gcc hello.c
+          ./a.out > a.txt
           pwd  >> a.txt
           ls   >> a.txt
           date >> a.txt
