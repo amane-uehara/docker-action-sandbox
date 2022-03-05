@@ -15,7 +15,7 @@ pushでビルドしたいリポジトリに、ファイルを1つ追加すれば
 のリポジトリにビルド機能を付けたいとする。
 この場合
 
-<https://github.com/amane-uehara/docker-action-sandbox/blob/master/.github/workflows/main.yml>
+<https://github.com/amane-uehara/push-de-build-kun/blob/master/.github/workflows/main.yml>
 
 の`main.yml`を、
 <https://github.com/yourname/repo>
@@ -31,7 +31,7 @@ pushでビルドしたいリポジトリに、ファイルを1つ追加すれば
 
 `main.yml`のシェルコマンドを適当に書き換えて使う。
 
-<https://github.com/amane-uehara/docker-action-sandbox/blob/master/.github/workflows/main.yml#L14,L20>
+<https://github.com/amane-uehara/push-de-build-kun/blob/master/.github/workflows/main.yml#L14,L20>
 
 ```sh
 echo "Hello, world!" > a.txt
